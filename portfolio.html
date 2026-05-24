@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Satyasri Chikkaraju | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --bg: #010001;
+      --card: #133336;
+      --primary: #367D8A;
+      --secondary: #285F6B;
+      --text: #FFFFFF;
+      --muted: #cfe8eb;
+      --border: rgba(54,125,138,0.22);
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1150px, 90%);
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(1, 0, 1, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      transition: 0.3s ease;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 4rem 0;
+      background: linear-gradient(to bottom right, rgba(54,125,138,0.18), rgba(19,51,54,0.35));
+    }
+
+    .hero-content h1 {
+      font-size: 3.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-content h1 span {
+      color: var(--primary);
+    }
+
+    .hero-content p {
+      max-width: 750px;
+      margin: auto;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .hero-buttons {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.9rem 1.6rem;
+      border-radius: 999px;
+      font-weight: 600;
+      transition: 0.3s ease;
+      display: inline-block;
+    }
+
+    .primary-btn {
+      background: var(--primary);
+      color: #010001;
+    }
+
+    .primary-btn:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+
+    .secondary-btn {
+      border: 1px solid var(--primary);
+      color: var(--primary);
+    }
+
+    .secondary-btn:hover {
+      background: rgba(54,125,138,0.14);
+    }
+
+    section {
+      padding: 5rem 0;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      color: var(--primary);
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .card {
+      background: var(--card);
+      padding: 2rem;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      transition: 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(54,125,138,0.38);
+    }
+
+    .skills-grid,
+    .achievement-grid,
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 1rem;
+    }
+
+    .tag {
+      background: rgba(54,125,138,0.18);
+      color: var(--primary);
+      padding: 0.5rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .project-card h3,
+    .card h3 {
+      margin-bottom: 0.8rem;
+    }
+
+    .project-card ul,
+    .achievement-grid ul {
+      padding-left: 1.2rem;
+      color: var(--muted);
+    }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .timeline-item {
+      border-left: 3px solid var(--primary);
+      padding-left: 1rem;
+    }
+
+    .timeline-item span {
+      color: var(--primary);
+      font-size: 0.9rem;
+    }
+
+    .profiles-grid {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.profile-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 1.2rem 1.5rem;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  transition: 0.3s ease;
+}
+
+.profile-card img {
+  width: 28px;
+  height: 28px;
+}
+
+.profile-card span {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.profile-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary);
+  background: rgba(201,173,167,0.08);
+}
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact-links {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .contact-links a {
+      background: var(--card);
+      padding: 1rem 1.4rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      transition: 0.3s ease;
+    }
+
+    .contact-links a:hover {
+      border-color: rgba(54,125,138,0.45);
+      color: var(--primary);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2.7rem;
+      }
+
+      .nav-links {
+        gap: 1rem;
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+    @media (max-width: 992px) {
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">Satyasri</div>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#achievements">Achievements</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-content">
+      <h1>Hi, I'm <span>Satyasri Chikkaraju</span></h1>
+      <p>
+        A Computer Science undergraduate passionate about software development,
+        problem-solving, data structures, algorithms, and building impactful
+        real-world applications using modern technologies.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#projects" class="btn primary-btn">View Projects</a>
+        <a href="#contact" class="btn secondary-btn">Contact Me</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+
+      <div class="about">
+        <div class="card">
+          <h3>Who I Am</h3>
+          <p>
+            I'm currently pursuing a Bachelor of Technology in Computer Science
+            and Engineering at Aditya University with a CGPA of 9.02.
+            I enjoy learning new technologies, solving coding challenges,
+            and developing scalable applications.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Education</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <span>2024 – 2028</span>
+              <h4>B.Tech - 9.02</h4>
+              <h4>Computer Science & Engineering</h4>
+              <p>Aditya University, Surampalem</p>
+            </div>
+
+            <div class="timeline-item">
+              <span>2022 – 2024</span>
+              <h4>Intermediate - 96.7%</h4>
+              <h4>MPC</h4>
+              <p>Pragati Junior College</p>
+            </div>
+
+            <div class="timeline-item">
+              <span>2021 – 2022</span>
+              <h4>Class 10th - 97.5%</h4>
+              <p>Ushodaya Merit School</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">Technical Skills</h2>
+
+      <div class="skills-grid">
+        <div class="card">
+          <h3>Programming Languages</h3>
+          <div class="skill-tags">
+            <span class="tag">C</span>
+            <span class="tag">C++</span>
+            <span class="tag">Java</span>
+            <span class="tag">Python</span>
+            <span class="tag">SQL</span>
+            <span class="tag">JavaScript</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Frontend & Backend</h3>
+          <div class="skill-tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">ReactJS</span>
+            <span class="tag">NodeJS</span>
+            <span class="tag">ExpressJS</span>
+            <span class="tag">Next.js</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Tools & Platforms</h3>
+          <div class="skill-tags">
+            <span class="tag">MongoDB</span>
+            <span class="tag">Socket.io</span>
+            <span class="tag">JWT</span>
+            <span class="tag">Git & GitHub</span>
+            <span class="tag">Excel</span>
+            <span class="tag">PowerBI</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+
+      <div class="projects-grid">
+        <div class="card project-card">
+          <h3>Campus Permissions & Announcements Hub</h3>
+          <ul>
+            <li>Built an AI-powered centralized college management platform using Next.js and MongoDB.</li>
+            <li>Integrated Gemini AI for recommendation systems and smart dashboards.</li>
+            <li>Implemented online permission workflows and real-time notifications.</li>
+          </ul>
+          <span><center><a href="https://github.com/Satyasri2006/ProjectSpace">GitHub</a></center>
+          </span>
+        </div>
+
+        <div class="card project-card">
+          <h3>Real-Time Chat Application</h3>
+          <ul>
+            <li>Developed a chat application using Node.js, Express.js, MongoDB, and Socket.io.</li>
+            <li>Implemented authentication and RESTful backend APIs.</li>
+            <li>Created dynamic real-time chat updates and smooth UI interactions.</li>
+          </ul>
+          <span><center><a href="https://github.com/Satyasri2006/Real-Time-Chat-Application">GitHub</a></center>
+          </span>
+        </div>
+
+        <div class="card project-card">
+          <h3>Student Result Management System</h3>
+          <ul>
+            <li>Built using Java Swing and JDBC for academic result management.</li>
+            <li>Integrated CRUD operations and database connectivity.</li>
+            <li>Designed a responsive and interactive desktop interface.</li>
+          </ul>
+          <span><center><a href="https://github.com/Satyasri2006/Student_Result_Management_System">GitHub</a></center>
+          </span>
+        </div>
+
+        <div class="card project-card">
+          <h3>Library Management System</h3>
+          <ul>
+            <li>Developed in C++ using object-oriented programming concepts.</li>
+            <li>Implemented issue, return, add, and delete functionalities.</li>
+            <li>Used STL containers and efficient search algorithms.</li>
+          </ul>
+          <span><center><a href="https://github.com/Satyasri2006/Library_Management_System">GitHub</a></center>
+          </span>
+        </div>
+
+        <div class="card project-card">
+          <h3>Book Fair Entry</h3>
+          <ul>
+            <li>Created a desktop application using Java Swing and JDBC.</li>
+            <li>Implemented CRUD operations and event-driven UI handling.</li>
+            <li>Added input validation and modular OOP structure.</li>
+          </ul>
+          <span><center><a href="https://github.com/Satyasri2006/Book_Fair_Entry">GitHub</a></center>
+          </span>
+        </div>
+
+        <div class="card project-card">
+          <h3>Mini Projects</h3>
+          <ul>
+            <li>Snake and Ladder Game in C++.</li>
+            <span><center><a href="https://github.com/Satyasri2006/Snakes_and_Ladders">GitHub</a></center>
+            </span>
+            <li>Console-based Hangman Game using OOP concepts.</li>
+            <span><center><a href="https://github.com/Satyasri2006/HangMan">GitHub</a></center>
+            </span>
+            <li>Focused on game logic, STL usage, and player interactions.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="achievements">
+    <div class="container">
+      <h2 class="section-title">Achievements</h2>
+
+      <div class="achievement-grid">
+        <div class="card">
+          <h3>Coding Platforms</h3>
+          <ul>
+            <li>2★ on CodeChef with a peak rating of 1433.</li>
+            <li>LeetCode peak rating of 1493.</li>
+            <li>Solved 800+ coding problems.</li>
+            <li>Participated in 95+ contests.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Hackathons & Challenges</h3>
+          <ul>
+            <li>Participated in Adobe India Hackathon.</li>
+            <li>Participated in Tata Imagination Challenge Quiz.</li>
+            <li>Strong foundation in problem-solving and algorithms.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Certifications</h3>
+          <ul>
+            <li>Anthropic - Claude API & MCP Certifications.</li>
+            <li>Microsoft - Excel & Power Platform Fundamentals.</li>
+            <li>Red Hat - System Administration & OpenShift.</li>
+            <li>HackerRank Certifications in SQL, Python & Problem Solving.</li>
+            <li>Oracle - Database Foundations, Java Programming</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section id="profiles">
+  <div class="container">
+    <h2 class="section-title">Coding Profiles</h2>
+
+    <div class="profiles-grid">
+
+      <a href="https://leetcode.com/u/Satyasri069/" target="_blank" class="profile-card">
+        <img src="https://cdn.simpleicons.org/leetcode" alt="LeetCode">
+        <span>LeetCode</span>
+      </a>
+
+      <a href="https://www.codechef.com/users/satyasri069" target="_blank" class="profile-card">
+        <img src="https://cdn.simpleicons.org/codechef" alt="CodeChef">
+        <span>CodeChef</span>
+      </a>
+
+      <a href="https://www.hackerrank.com/profile/24B11CS069" target="_blank" class="profile-card">
+        <img src="https://cdn.simpleicons.org/hackerrank" alt="HackerRank">
+        <span>HackerRank</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+  <section id="contact">
+    <div class="container contact">
+      <h2 class="section-title">Contact</h2>
+      <p>
+        Interested in collaborating, internships, or opportunities?
+        Feel free to connect with me.
+      </p>
+
+      <div class="contact-links">
+        <a href="mailto:satyachikkaraju2016@gmail.com">Email</a>
+        <a href="https://github.com/Satyasri2006">GitHub</a>
+        <a href="www.linkedin.com/in/satyasrichikkaraju">LinkedIn</a>
+        <a href="tel:+917670872006">Phone</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Satyasri Chikkaraju. Built with HTML & CSS.</p>
+    </div>
+  </footer>
+</body>
+</html>
