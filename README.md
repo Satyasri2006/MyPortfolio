@@ -4,7 +4,7 @@ A modern and responsive personal portfolio website built using **HTML** and **CS
 
 ## 🚀 Live Website
 
-🔗 https://satyasri2006.github.io/FUTURE_FS_01/
+🔗 https://satyasri2006.github.io/MyPortfolio/
 
 ---
 
